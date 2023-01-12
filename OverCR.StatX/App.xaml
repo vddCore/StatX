@@ -5,9 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Templates/Windows/StandardWindowTemplate.xaml" />
-                <ResourceDictionary Source="Resources/Templates/Buttons/MainWindowButton.xaml" />
-                <ResourceDictionary Source="Resources/Templates/Buttons/GenericButton.xaml" />
+                <ResourceDictionary Source="Resources/ColorSchemes/DefaultColorScheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

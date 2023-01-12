@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:OverCR.StatX.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="120" Background="White"
+             d:DesignHeight="70" d:DesignWidth="120" Background="Transparent"
              x:Name="Root">
     <Grid>
         <TextBlock x:Name="TitleTextBlock"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top"
-                   Foreground="{DynamicResource DarkTextBrush}"
+                   Foreground="{DynamicResource LightTextBrush}"
                    Margin="0,0,0,0" 
                    FontSize="14"
                    Text="{Binding ElementName=Root, Path=Title}" 

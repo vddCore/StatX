@@ -34,6 +34,9 @@ namespace OverCR.StatX.Config
 
         public void Save()
         {
+            if (IsWritingSettings)
+                return;
+
             IsWritingSettings = true;
 
             using (var sw = new StreamWriter(FileName))

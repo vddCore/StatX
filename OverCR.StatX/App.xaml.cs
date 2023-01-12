@@ -10,17 +10,19 @@ namespace OverCR.StatX
     {
         public static TrayIconProvider TrayIconProvider { get; set; }
         public static Settings StatisticsSaveFile { get; set; }
+        public static Settings ConfigurationFile { get; set; }
 
-        private static Timer SettingsTimer { get; set; }
+        private static Timer StatisticsSaveTimer { get; set; }
 
         public App()
         {
             TrayIconProvider = new TrayIconProvider();
             StatisticsSaveFile = new Settings("./_settings/stats.json");
+            ConfigurationFile = new Settings("./_settings/config.json");
 
-            SettingsTimer = new Timer(10000);
-            SettingsTimer.Elapsed += SettingsTimer_Elapsed;
-            SettingsTimer.Start();
+            StatisticsSaveTimer = new Timer(10000);
+            StatisticsSaveTimer.Elapsed += StatisticsSaveTimer_Elapsed;
+            StatisticsSaveTimer.Start();
 
             Exit += App_Exit;
         }
@@ -35,7 +37,7 @@ namespace OverCR.StatX
             win.ShowDialog();
         }
 
-        private void SettingsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void StatisticsSaveTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             StatisticsSaveFile.Save();
         }
@@ -43,6 +45,8 @@ namespace OverCR.StatX
         private void App_Exit(object sender, ExitEventArgs e)
         {
             StatisticsSaveFile.Save();
+            ConfigurationFile.Save();
+
             TrayIconProvider.HideIcon();
         }
     }

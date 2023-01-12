@@ -6,7 +6,7 @@
     <Color x:Key="DarkAccentColor" A="255" R="0" G="111" B="174" />
     <Color x:Key="AccentedTextColor" A="255" R="0" G="147" B="231" />
     <Color x:Key="DarkTextColor" A="255" R="41" G="41" B="41" />
-    <Color x:Key="LightTextColor" A="255" R="107" G="107" B="107" />
+    <Color x:Key="LightTextColor" A="255" R="188" G="188" B="188" />
     
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource WindowBackgroundColor}" />
     <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />

@@ -2,6 +2,7 @@
 using System.Windows;
 using OverCR.StatX.Statistics;
 using OverCR.StatX.Extensions;
+using System.Windows.Input;
 
 namespace OverCR.StatX
 {
@@ -197,19 +198,21 @@ namespace OverCR.StatX
             }
         }
 
-        private void HideWindowButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnCloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            ToggleVisibility();
-        }
-
-        private void QuitButton_Click(object sender, RoutedEventArgs e)
-        {
-            var choiceWindow = ChoiceWindow.ShowChoice("Really exit?", "Your statistics won't be tracked until you restart StatX!", this);
-            choiceWindow.YesClicked += (s, ev) =>
+            if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
             {
-                Close();
-            };
-            choiceWindow.ShowDialog();
+                var choiceWindow = ChoiceWindow.ShowChoice("Really exit?", "Your statistics won't be tracked until you restart this application!", this);
+                choiceWindow.YesClicked += (s, ev) =>
+                {
+                    Close();
+                };
+                choiceWindow.ShowDialog();
+            }
+            else
+            {
+                ToggleVisibility();
+            }
         }
     }
 }

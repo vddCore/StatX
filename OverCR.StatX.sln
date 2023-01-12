@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.StatX", "OverCR.Stat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.StatX.Hooks", "OverCR.StatX.Hooks\OverCR.StatX.Hooks.csproj", "{F948C678-C492-462D-A8AA-C6D90A7F12A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atlas.UI", "Atlas.UI\Atlas.UI.csproj", "{8ACD4C64-2292-4596-8291-AD4CE356E647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F948C678-C492-462D-A8AA-C6D90A7F12A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F948C678-C492-462D-A8AA-C6D90A7F12A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F948C678-C492-462D-A8AA-C6D90A7F12A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACD4C64-2292-4596-8291-AD4CE356E647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACD4C64-2292-4596-8291-AD4CE356E647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACD4C64-2292-4596-8291-AD4CE356E647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACD4C64-2292-4596-8291-AD4CE356E647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

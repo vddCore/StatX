@@ -2,53 +2,27 @@
 {
     public enum Keys
     {
-        LeftMouseButton = 0x01,     
-        RightMouseButton = 0x02,    
-        Break = 0x03,              
-        MiddleMousButton = 0x04,    
-        XMouseButton1 = 0x05,       
-        XMouseButton2 = 0x06,       
-               
-        Backspace = 0x08,   
-        Tab = 0x09,         
-                            
-        Clear = 0x0C,       
-        Return = 0x0D,      
-                            
-        Shift = 0x10,       
-        Control = 0x11,     
-        Alt = 0x12,        
-        Pause = 0x13,       
-        CapsLock = 0x14,    
-        KanaIME = 0x15,     
-        HangulIME = 0x15,   
-                            
-        JunjaIME = 0x17,    
-        FinalIME = 0x18,    
-        HanjaIME = 0x19,    
-        KanjiIME = 0x19,    
-                            
-        Escape = 0x1B,      
-        Convert = 0x1C,                        
-        NonConvert = 0x1D,  
-        Accept = 0x1E,                       
-        ModeChange = 0x1F,  
-        Space = 0x20,       
-        PageUp = 0x21,      
-        PageDown = 0x22,    
-        End = 0x23,         
-        Home = 0x24,        
-        LeftArrow = 0x25,   
-        UpArrow = 0x26,     
-        RightArrow = 0x27,  
-        DownArrow = 0x28,   
-        Select = 0x29,      
-        Print = 0x2A,       
-        Execute = 0x2B,     
+        Backspace = 0x08,
+        Tab = 0x09,
+
+        Clear = 0x0C,
+        Return = 0x0D,
+        PauseBreak = 0x13,
+        CapsLock = 0x14,
+        Escape = 0x1B,
+        Space = 0x20,
+        PageUp = 0x21,
+        PageDown = 0x22,
+        End = 0x23,
+        Home = 0x24,
+        LeftArrow = 0x25,
+        UpArrow = 0x26,
+        RightArrow = 0x27,
+        DownArrow = 0x28,
         PrintScreen = 0x2C, 
         Insert = 0x2D,      
         Delete = 0x2E,      
-        Help = 0x2F,        
+        Help = 0x2F,
         Alpha0 = 0x30,      
         Alpha1 = 0x31,      
         Alpha2 = 0x32,      
@@ -90,7 +64,7 @@
         RightWindows = 0x5C,
         ContextMenu = 0x5D,
                             
-        Sleep = 0x5F,       
+        Sleep = 0x5F,
         Num0 = 0x60,     
         Num1 = 0x61,     
         Num2 = 0x62,     
@@ -140,7 +114,8 @@
         LeftControl = 0xA2, 
         RightControl = 0xA3,    
         LeftAlt = 0xA4,       
-        RightAlt = 0xA5,      
+        RightAlt = 0xA5,
+        
         BrowserBack = 0xA6,    
         BrowserForward = 0xA7, 
         BrowserRefresh = 0xA8, 
@@ -167,19 +142,19 @@
         Slash = 0xBF,
         Tilde = 0xC0,
         LeftBracket = 0xDB,
-        BackSlash = 0xDC,
+        Backslash = 0xDC,
         RightBracket = 0xDD,
         Quote = 0xDE,
-        Oem8 = 0xDF,       // Used for miscellaneous characters; it can vary by keyboard.
+        Oem8 = 0xDF,        // Used for miscellaneous characters; it can vary by keyboard.
                             //                  0xE0,  // Reserved
                             //                  0xE1,  // OEM specific
-        Oem102 = 0xE2,     // Windows 2000/XP: Either the angle bracket key or the backslash key on the RT 102-key keyboard
+        Oem102 = 0xE2,      // Windows 2000/XP: Either the angle bracket key or the backslash key on the RT 102-key keyboard
                             //                  0xE3-E4,  // OEM specific
-        Process = 0xE5,  // Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key
+        Process = 0xE5,     // Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key
                             //                  0xE6,  // OEM specific
         Packet = 0xE7,      // Windows 2000/XP: Used to pass Unicode characters as if they were keystrokes. The VK_PACKET key is the low word of a 32-bit Virtual Key value used for non-keyboard input methods. For more information, see Remark in KEYBDINPUT, SendInput, WM_KEYDOWN, and WM_KEYUP
                             //                  0xE8,  // Unassigned
                             //                  0xE9-F5,  // OEM specific
-        OemClear = 0xFE    // Clear key
+        OemClear = 0xFE     // Clear key
     }
 }

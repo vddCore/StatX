@@ -74,12 +74,12 @@
                     Margin="0,0,10,0"
                     Content="hide window"
                     Click="HideWindowButton_Click"/>
-            <!--<Button Name="DetailedStatsButton"
+            <Button Name="DetailedStatsButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="0,0,10,0"
                     Content="detailed statistics" />
-            <Button Name="SettingsButton"
+            <!--<Button Name="SettingsButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="0,0,10,0"

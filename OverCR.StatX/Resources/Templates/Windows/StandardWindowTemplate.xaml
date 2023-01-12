@@ -13,7 +13,7 @@
                 <Setter.Value>
                     <WindowChrome CaptionHeight="29" 
                                   CornerRadius="0"
-                                  ResizeBorderThickness="5" />
+                                  ResizeBorderThickness="5" UseAeroCaptionButtons="False"/>
                 </Setter.Value>
             </Setter>
 
@@ -24,9 +24,9 @@
                               Margin="5">
                             <Grid.Effect>
                                 <DropShadowEffect Color="{DynamicResource AccentColor}"
-                                                      BlurRadius="5"
-                                                      ShadowDepth="0"
-                                                      Direction="0" />
+                                                  BlurRadius="5"
+                                                  ShadowDepth="0"
+                                                  Direction="0" />
                             </Grid.Effect>
 
                             <Border BorderBrush="{DynamicResource AccentBrush}"

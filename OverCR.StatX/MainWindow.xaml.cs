@@ -164,7 +164,7 @@ namespace OverCR.StatX
             KeyboardTracker = new KeyboardTracker();
             KeyboardTracker.ReloadStats();
             KeyboardTracker.KeyPressesChanged += KeyboardTracker_KeyPressesChanged;
-            KeyboardTracker.KeypressEnergyChanged += KeyboardTracker_KeyPressureChanged;
+            KeyboardTracker.KeyPressEnergyChanged += KeyboardTracker_KeyPressureChanged;
 
 
             KeyboardTracker_KeyPressesChanged(null, null);
@@ -181,7 +181,6 @@ namespace OverCR.StatX
             ToggleVisibility();
         }
 
-
         private void ToggleVisibility()
         {
             if (Visibility == Visibility.Visible)
@@ -191,6 +190,7 @@ namespace OverCR.StatX
             else
             {
                 Visibility = Visibility.Visible;
+                Activate();
             }
         }
 

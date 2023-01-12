@@ -18,7 +18,7 @@ namespace OverCR.StatX
             TrayIconProvider = new TrayIconProvider();
             StatisticsSaveFile = XmlConfiguration.AbsolutePath("./_settings/stats.xml");
 
-            SettingsTimer = new Timer(15000);
+            SettingsTimer = new Timer(10000);
             SettingsTimer.Elapsed += SettingsTimer_Elapsed;
             SettingsTimer.Start();
 

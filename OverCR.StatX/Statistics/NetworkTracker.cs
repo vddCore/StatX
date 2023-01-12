@@ -9,8 +9,8 @@ namespace OverCR.StatX.Statistics
     {
         private Thread CounterThread { get; set; }
         private NetworkInterface[] Interfaces { get; }
-        private Dictionary<NetworkInterface, long> InterfaceSentData { get; }
-        private Dictionary<NetworkInterface, long> InterfaceReceivedData { get; }
+        private Dictionary<NetworkInterface, ulong> InterfaceSentData { get; }
+        private Dictionary<NetworkInterface, ulong> InterfaceReceivedData { get; }
 
         public double TotalBytesSent { get; private set; }
         public double TotalBytesReceived { get; private set; }
@@ -21,8 +21,8 @@ namespace OverCR.StatX.Statistics
         public NetworkTracker()
         {
             Interfaces = NetworkInterface.GetAllNetworkInterfaces();
-            InterfaceSentData = new Dictionary<NetworkInterface, long>();
-            InterfaceReceivedData = new Dictionary<NetworkInterface, long>();
+            InterfaceSentData = new Dictionary<NetworkInterface, ulong>();
+            InterfaceReceivedData = new Dictionary<NetworkInterface, ulong>();
 
             foreach (var iface in Interfaces)
             {
@@ -55,8 +55,8 @@ namespace OverCR.StatX.Statistics
             {
                 foreach (var iface in Interfaces)
                 {
-                    var dataSent = iface.GetIPStatistics().BytesSent;
-                    var dataReceived = iface.GetIPStatistics().BytesReceived;
+                    var dataSent = (ulong)iface.GetIPStatistics().BytesSent;
+                    var dataReceived = (ulong)iface.GetIPStatistics().BytesReceived;
 
                     if (InterfaceSentData[iface] == 0)
                     {

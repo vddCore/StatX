@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using OverCR.StatX.Hooks.WinAPI;
 using OverCR.StatX.Hooks.WinAPI.Structures;
 
-namespace OverCR.StatX.Hooks
+namespace OverCR.StatX.Hooks.Mouse
 {
     public class MouseHookEventArgs : EventArgs
     {

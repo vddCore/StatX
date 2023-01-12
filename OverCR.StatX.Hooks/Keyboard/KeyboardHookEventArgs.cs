@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using OverCR.StatX.Hooks.WinAPI;
 
-namespace OverCR.StatX.Hooks
+namespace OverCR.StatX.Hooks.Keyboard
 {
     public class KeyboardHookEventArgs : EventArgs
     {

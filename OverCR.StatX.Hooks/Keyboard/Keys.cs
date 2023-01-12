@@ -1,4 +1,4 @@
-﻿namespace OverCR.StatX.Hooks
+﻿namespace OverCR.StatX.Hooks.Keyboard
 {
     public enum Keys
     {

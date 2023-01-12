@@ -4,37 +4,19 @@ using OverCR.StatX.Hooks.WinAPI;
 
 namespace OverCR.StatX.Hooks.Keyboard
 {
-    public class KeyboardHook
+    public class KeyboardHook : InputHook
     {
         private const int KeyboardHookID = 13;
-
-        private IntPtr HookID { get; set; }
-        private User32.InputHookHandler HookHandler { get; set; }
-
-        public bool Installed => HookID != IntPtr.Zero;
 
         public delegate void KeyboardHookEventHandler(KeyboardHookEventArgs e);
 
         public event KeyboardHookEventHandler KeyDown;
         public event KeyboardHookEventHandler KeyUp;
 
-        ~KeyboardHook()
-        {
-            Uninstall();
-        }
-
-        public void Install()
+        public override void Install()
         {
             HookHandler = HookMethod;
             HookID = SetKeyboardHandler(HookHandler);
-        }
-
-        public void Uninstall()
-        {
-            if (Installed)
-            {
-                User32.UnhookWindowsHookEx(HookID);
-            }
         }
 
         private IntPtr HookMethod(int code, IntPtr wParam, IntPtr lParam)

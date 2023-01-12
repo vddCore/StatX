@@ -4,16 +4,11 @@ using OverCR.StatX.Hooks.WinAPI;
 
 namespace OverCR.StatX.Hooks.Mouse
 {
-    public class MouseHook
+    public class MouseHook : InputHook
     {
         private const int MouseHookID = 14;
 
-        private IntPtr HookID { get; set; }
-        private User32.InputHookHandler HookHandler { get; set; }
-
         public delegate void MouseHookEventHandler(MouseHookEventArgs e);
-
-        public bool Installed => HookID != IntPtr.Zero;
 
         public event MouseHookEventHandler MouseButtonDown;
         public event MouseHookEventHandler MouseButtonUp;
@@ -27,24 +22,10 @@ namespace OverCR.StatX.Hooks.Mouse
         public event MouseHookEventHandler MouseMove;
         public event MouseHookEventHandler MouseScroll;
 
-        ~MouseHook()
-        {
-            Uninstall();
-        }
-
-        public void Install()
+        public override void Install()
         {
             HookHandler = HookMethod;
             HookID = SetMouseHandler(HookHandler);
-        }
-
-        public void Uninstall()
-        {
-            if (Installed)
-            {
-                User32.UnhookWindowsHookEx(HookID);
-                HookID = IntPtr.Zero;
-            }
         }
 
         private IntPtr HookMethod(int code, IntPtr wParam, IntPtr lParam)

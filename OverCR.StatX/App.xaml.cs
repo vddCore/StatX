@@ -25,6 +25,16 @@ namespace OverCR.StatX
             Exit += App_Exit;
         }
 
+        public static void CriticalFailure(string message, Window owner)
+        {
+            var win = AlertWindow.ErrorBox(message, owner);
+            win.Closed += (sender, args) =>
+            {
+                Environment.Exit(1);
+            };
+            win.ShowDialog();
+        }
+
         private void SettingsTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             StatisticsSaveFile.Save();
@@ -34,16 +44,6 @@ namespace OverCR.StatX
         {
             StatisticsSaveFile.Save();
             TrayIconProvider.HideIcon();
-        }
-
-        public static void CriticalFailure(string message, Window owner)
-        {
-            var win = AlertWindow.ErrorBox(message, owner);
-            win.Closed += (sender, args) =>
-            {
-                Environment.Exit(1);
-            };
-            win.ShowDialog();
         }
     }
 }

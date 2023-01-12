@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:OverCR.StatX"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary Source="Resources/Templates/Windows/StandardWindowTemplate.xaml" />
     </Application.Resources>
 </Application>

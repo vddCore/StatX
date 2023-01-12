@@ -5,7 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OverCR.StatX"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="StatX" 
+        Height="240" 
+        Width="410" 
+        MinHeight="240"
+        MinWidth="410"
+        MaxHeight="240"
+        MaxWidth="410"
+        Style="{DynamicResource StandardWindow}">
     <Grid>
         
     </Grid>

@@ -116,7 +116,7 @@ namespace OverCR.StatX
                 App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceived", megaBytes.ToString(CultureInfo.InvariantCulture));
                 App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceivedUnit", "megabytes");
             }
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalBytesReceived", NetworkTracker.TotalBytesSent.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalBytesReceived", NetworkTracker.TotalBytesReceived.ToString(CultureInfo.InvariantCulture));
         }
 
         private void SetTotalDataSent(double value, string unit)
@@ -146,6 +146,12 @@ namespace OverCR.StatX
                 NetworkTracker.StopMonitoring();
             };
 
+            NetworkTracker = new NetworkTracker();
+            NetworkTracker.ReloadStats();
+            NetworkTracker.SentDataChanged += NetworkTracker_SentDataChanged;
+            NetworkTracker.ReceivedDataChanged += NetworkTracker_ReceivedDataChanged;
+            NetworkTracker.StartMonitoring();
+
             MouseTracker = new MouseTracker();
             MouseTracker.ReloadStats();
             MouseTracker.DistanceTraveledChanged += MouseTracker_DistanceTraveledChanged;
@@ -161,18 +167,13 @@ namespace OverCR.StatX
             KeyboardTracker.KeypressEnergyChanged += KeyboardTracker_KeyPressureChanged;
 
 
-            NetworkTracker = new NetworkTracker();
-            NetworkTracker.ReloadStats();
-            NetworkTracker.SentDataChanged += NetworkTracker_SentDataChanged;
-            NetworkTracker.ReceivedDataChanged += NetworkTracker_ReceivedDataChanged;
-            NetworkTracker.StartMonitoring();
-
             KeyboardTracker_KeyPressesChanged(null, null);
             KeyboardTracker_KeyPressureChanged(null, null);
             MouseTracker_ClicksChanged(null, null);
             MouseTracker_DistanceScrolledChanged(null, null);
             MouseTracker_DistanceTraveledChanged(null, null);
             NetworkTracker_SentDataChanged(null, null);
+            NetworkTracker_ReceivedDataChanged(null, null);
         }
 
         private void TrayIconProvider_NotifyIconClicked(object sender, EventArgs eventArgs)

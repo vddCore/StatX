@@ -22,7 +22,7 @@ namespace OverCR.StatX.Controls
             }
         }
 
-        public float Value
+        public double Value
         {
             get { return (float)GetValue(ValueProperty); }
             set
@@ -33,7 +33,7 @@ namespace OverCR.StatX.Controls
 
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(StatisticsDisplayLeftSide));
         public static readonly DependencyProperty UnitNameProperty = DependencyProperty.Register("UnitName", typeof(string), typeof(StatisticsDisplayLeftSide));
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(float), typeof(StatisticsDisplayLeftSide));
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(StatisticsDisplayLeftSide));
 
         public StatisticsDisplayLeftSide()
         {

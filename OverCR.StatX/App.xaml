@@ -1,9 +1,13 @@
 ﻿<Application x:Class="OverCR.StatX.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OverCR.StatX"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <ResourceDictionary Source="Resources/Templates/Windows/StandardWindowTemplate.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Templates/Windows/StandardWindowTemplate.xaml" />
+                <ResourceDictionary Source="Resources/Templates/Buttons/MainWindowButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

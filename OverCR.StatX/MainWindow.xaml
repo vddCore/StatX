@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OverCR.StatX"
         xmlns:controls="clr-namespace:OverCR.StatX.Controls"
         mc:Ignorable="d"
         Title="StatX" 
@@ -13,7 +12,8 @@
         MinWidth="410"
         MaxHeight="240"
         MaxWidth="410"
-        Style="{DynamicResource StandardWindow}">
+        Style="{DynamicResource StandardWindow}"
+        Loaded="MainWindow_Loaded">
     <Grid>
         <StackPanel HorizontalAlignment="Left"
                     VerticalAlignment="Top"
@@ -23,21 +23,21 @@
                                                 VerticalAlignment="Top"
                                                 Title="total mouse clicks"
                                                 UnitName="clicks"
-                                                Value="1493" />
+                                                Value="0" />
             
             <controls:StatisticsDisplayLeftSide x:Name="TotalMouseDistanceDisplay"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 Title="total mouse travel distance"
-                                                UnitName="kilometers"
-                                                Value="4.31" />
+                                                UnitName="meters"
+                                                Value="0" />
 
             <controls:StatisticsDisplayLeftSide x:Name="TotalMouseScrollDistanceDisplay"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 Title="total scrolled distance"
-                                                UnitName="kilometers"
-                                                Value="2.03" />
+                                                UnitName="meters"
+                                                Value="0" />
         </StackPanel>
         
         <StackPanel HorizontalAlignment="Right"
@@ -48,14 +48,35 @@
                                                  VerticalAlignment="Top" 
                                                  Title="total key presses" 
                                                  UnitName="presses"
-                                                 Value="2341"/>
+                                                 Value="0"/>
 
             <controls:StatisticsDisplayRightSide x:Name="TotalKeyPressureDisplay" 
                                                  HorizontalAlignment="Right"
                                                  VerticalAlignment="Top" 
-                                                 Title="total key pressure used" 
-                                                 UnitName="kilograms"
-                                                 Value="2.57"/>
+                                                 Title="total keypress energy" 
+                                                 UnitName="joules"
+                                                 Value="0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,10">
+            <Button HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,10,0"
+                    Content="hide window" />
+            <Button HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,10,0"
+                    Content="detailed statistics" />
+            <Button HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,10,0"
+                    Content="settings" />
+            <Button HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Content="quit program" />
         </StackPanel>
     </Grid>
 </Window>

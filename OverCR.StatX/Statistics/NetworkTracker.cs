@@ -70,23 +70,29 @@ namespace OverCR.StatX.Statistics
                         continue;
                     }
 
-                    if (InterfaceSentData[iface] != dataSent)
+                    if (InterfaceSentData[iface] != dataSent && InterfaceSentData[iface] > 0)
                     {
                         var bytesSent = dataSent - InterfaceSentData[iface];
-                        TotalBytesSent += bytesSent;
+                        if (bytesSent > 0)
+                        {
+                            TotalBytesSent += bytesSent;
 
-                        InterfaceSentData[iface] = dataSent;
-                        SentDataChanged?.Invoke(this, EventArgs.Empty);
+                            InterfaceSentData[iface] = dataSent;
+                            SentDataChanged?.Invoke(this, EventArgs.Empty);
+                        }
                     }
 
 
-                    if (InterfaceReceivedData[iface] != dataReceived)
+                    if (InterfaceReceivedData[iface] != dataReceived && InterfaceReceivedData[iface] > 0)
                     {
                         var bytesReceived = dataReceived - InterfaceReceivedData[iface];
-                        TotalBytesReceived += bytesReceived;
+                        if (bytesReceived > 0)
+                        {
+                            TotalBytesReceived += bytesReceived;
 
-                        InterfaceReceivedData[iface] = dataReceived;
-                        ReceivedDataChanged?.Invoke(this, EventArgs.Empty);
+                            InterfaceReceivedData[iface] = dataReceived;
+                            ReceivedDataChanged?.Invoke(this, EventArgs.Empty);
+                        }
                     }
                 }
                 Thread.Sleep(100);

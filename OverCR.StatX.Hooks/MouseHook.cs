@@ -9,23 +9,23 @@ namespace OverCR.StatX.Hooks
         private const int MouseHookID = 14;
 
         private IntPtr HookID { get; set; }
-        private User32.MouseHookHandler HookHandler { get; set; }
+        private User32.InputHookHandler HookHandler { get; set; }
 
-        public delegate void MouseHookCallback(MouseHookEventArgs e);
+        public delegate void MouseHookEventHandler(MouseHookEventArgs e);
 
         public bool Installed => HookID != IntPtr.Zero;
 
-        public event MouseHookCallback MouseButtonDown;
-        public event MouseHookCallback MouseButtonUp;
-        public event MouseHookCallback LeftMouseButtonDown;
-        public event MouseHookCallback LeftMouseButtonUp;
-        public event MouseHookCallback LeftMouseButtonDoubleClick;
-        public event MouseHookCallback MiddleMouseButtonDown;
-        public event MouseHookCallback MiddleMouseButtonUp;
-        public event MouseHookCallback RightMouseButtonDown;
-        public event MouseHookCallback RightMouseButtonUp;
-        public event MouseHookCallback MouseMove;
-        public event MouseHookCallback MouseScroll;
+        public event MouseHookEventHandler MouseButtonDown;
+        public event MouseHookEventHandler MouseButtonUp;
+        public event MouseHookEventHandler LeftMouseButtonDown;
+        public event MouseHookEventHandler LeftMouseButtonUp;
+        public event MouseHookEventHandler LeftMouseButtonDoubleClick;
+        public event MouseHookEventHandler MiddleMouseButtonDown;
+        public event MouseHookEventHandler MiddleMouseButtonUp;
+        public event MouseHookEventHandler RightMouseButtonDown;
+        public event MouseHookEventHandler RightMouseButtonUp;
+        public event MouseHookEventHandler MouseMove;
+        public event MouseHookEventHandler MouseScroll;
 
         ~MouseHook()
         {
@@ -93,7 +93,7 @@ namespace OverCR.StatX.Hooks
             return User32.CallNextHookEx(HookID, code, wParam, lParam);
         }
 
-        private IntPtr SetMouseHandler(User32.MouseHookHandler hook)
+        private static IntPtr SetMouseHandler(User32.InputHookHandler hook)
         {
             using (var module = Process.GetCurrentProcess().MainModule)
             {

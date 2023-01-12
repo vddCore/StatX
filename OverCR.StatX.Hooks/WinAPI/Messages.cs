@@ -14,5 +14,13 @@
             MiddleButtonDown = 0x0207,
             MiddleButtonUp = 0x0208
         }
+
+        public enum Keyboard
+        {
+            KeyDown = 0x100,
+            SystemKeyDown = 0x104,
+            KeyUp = 0x101,
+            SystemKeyUp = 0x105
+        }
     }
 }

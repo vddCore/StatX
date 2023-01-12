@@ -4,7 +4,7 @@ using OverCR.StatX.Hooks.WinAPI;
 
 namespace OverCR.StatX.Hooks.Windows
 {
-    public class SystemEventHook
+    public class WindowHook
     {
         private IntPtr HookID { get; set; }
         private User32.WindowsEventHandler HookHandler { get; set; }
@@ -14,12 +14,14 @@ namespace OverCR.StatX.Hooks.Windows
         public delegate void WindowHookEventHandler(WindowHookEventArgs e);
 
         public event WindowHookEventHandler ActiveWindowChanged;
-        public event WindowHookEventHandler WindowMinimized;
-        public event WindowHookEventHandler WindowRestored;
+        public event WindowHookEventHandler Minimized;
+        public event WindowHookEventHandler Restored;
         public event WindowHookEventHandler MouseCaptured;
         public event WindowHookEventHandler MouseReleased;
+        public event WindowHookEventHandler MoveOrResizeStarted;
+        public event WindowHookEventHandler MoveOrResizeFinished;
 
-        ~SystemEventHook()
+        ~WindowHook()
         {
             Uninstall();
         }
@@ -49,11 +51,11 @@ namespace OverCR.StatX.Hooks.Windows
                     break;
                 case WinAPI.WindowsEvents.System.WindowMinimized:
                     var wmArgs = new WindowHookEventArgs(windowHandle);
-                    WindowMinimized?.Invoke(wmArgs);
+                    Minimized?.Invoke(wmArgs);
                     break;
                 case WinAPI.WindowsEvents.System.WindowRestored:
                     var wrArgs = new WindowHookEventArgs(windowHandle);
-                    WindowRestored?.Invoke(wrArgs);
+                    Restored?.Invoke(wrArgs);
                     break;
                 case WinAPI.WindowsEvents.System.WindowCapturedMouse:
                     var mcArgs = new WindowHookEventArgs(windowHandle);
@@ -62,6 +64,14 @@ namespace OverCR.StatX.Hooks.Windows
                 case WinAPI.WindowsEvents.System.WindowLostMouse:
                     var mrArgs = new WindowHookEventArgs(windowHandle);
                     MouseReleased?.Invoke(mrArgs);
+                    break;
+                case WinAPI.WindowsEvents.System.WindowMoveOrResizeStarted:
+                    var wmrsArgs = new WindowHookEventArgs(windowHandle);
+                    MoveOrResizeStarted?.Invoke(wmrsArgs);
+                    break;
+                case WinAPI.WindowsEvents.System.WindowMoveOrResizeFinished:
+                    var wmrfArgs = new WindowHookEventArgs(windowHandle);
+                    MoveOrResizeFinished?.Invoke(wmrfArgs);
                     break;
             }
         }
@@ -79,6 +89,5 @@ namespace OverCR.StatX.Hooks.Windows
                 );
             }
         }
-
     }
 }

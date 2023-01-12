@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Configuration Name="Core">
-  <Section Name="Behavior">
-    <Entry Key="StartHidden" Value="True" />
-    <Entry Key="CloseToTray" Value="True" />
-    <Entry Key="StartWithWindows" Value="True" />
-  </Section>
-</Configuration>

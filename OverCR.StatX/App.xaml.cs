@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Timers;
 using System.Windows;
-using OverCR.Missouri;
+using OverCR.StatX.Config;
 using OverCR.StatX.Tray;
 
 namespace OverCR.StatX
@@ -9,14 +9,14 @@ namespace OverCR.StatX
     public partial class App
     {
         public static TrayIconProvider TrayIconProvider { get; set; }
-        public static XmlConfiguration StatisticsSaveFile { get; set; }
+        public static Settings StatisticsSaveFile { get; set; }
 
         private static Timer SettingsTimer { get; set; }
 
         public App()
         {
             TrayIconProvider = new TrayIconProvider();
-            StatisticsSaveFile = XmlConfiguration.AbsolutePath("./_settings/stats.xml");
+            StatisticsSaveFile = new Settings("./_settings/stats.json");
 
             SettingsTimer = new Timer(10000);
             SettingsTimer.Elapsed += SettingsTimer_Elapsed;

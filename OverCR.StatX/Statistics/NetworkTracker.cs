@@ -45,8 +45,8 @@ namespace OverCR.StatX.Statistics
 
         public void ReloadStats()
         {
-            TotalBytesSent = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalBytesSent");
-            TotalBytesReceived = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalBytesReceived");
+            TotalBytesSent = App.StatisticsSaveFile.GetValue<double>("TotalBytesSent");
+            TotalBytesReceived = App.StatisticsSaveFile.GetValue<double>("TotalBytesReceived");
         }
 
         private void UpdateData()

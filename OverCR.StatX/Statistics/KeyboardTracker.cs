@@ -27,13 +27,17 @@ namespace OverCR.StatX.Statistics
 
         public void ReloadStats()
         {
-            TotalKeyPresses = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalKeyPresses");
-            TotalKeypressEnergy = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalKeyPressEnergy");
+            TotalKeyPresses = App.StatisticsSaveFile.GetValue<int>("TotalKeyPresses");
+            TotalKeypressEnergy = App.StatisticsSaveFile.GetValue<double>("TotalKeyPressEnergy");
 
-            var keySpecificStats = App.StatisticsSaveFile.Section("KeySpecificStats");
-            foreach (var kvp in keySpecificStats)
+            var keySpecificStats = App.StatisticsSaveFile.GetValue<Dictionary<string, long>>("KeySpecificStats");
+
+            if (keySpecificStats != null)
             {
-                KeySpecificStats.Add(kvp.Key, keySpecificStats.Entry<long>(kvp.Key));
+                foreach (var kvp in keySpecificStats)
+                {
+                    KeySpecificStats.Add(kvp.Key, kvp.Value);
+                }
             }
         }
 
@@ -194,12 +198,10 @@ namespace OverCR.StatX.Statistics
             if (!KeySpecificStats.ContainsKey(key))
             {
                 KeySpecificStats.Add(key, 1);
-                App.StatisticsSaveFile.Section("KeySpecificStats").Add(key, KeySpecificStats[key].ToString());
             }
             else
             {
                 KeySpecificStats[key]++;
-                App.StatisticsSaveFile.Section("KeySpecificStats").SetEntryValue(key, KeySpecificStats[key].ToString());
             }
         }
     }

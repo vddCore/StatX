@@ -39,6 +39,9 @@
     <ApplicationIcon>Resources\Icons\TrayIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -67,6 +70,7 @@
     <Compile Include="ChoiceWindow.xaml.cs">
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Config\Settings.cs" />
     <Compile Include="Statistics\KeyboardTracker.cs" />
     <Compile Include="Statistics\MouseTracker.cs" />
     <Compile Include="Statistics\NetworkTracker.cs" />
@@ -140,6 +144,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,10 +155,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Missouri\OverCR.Missouri\OverCR.Missouri.csproj">
-      <Project>{4973ceca-7d90-4f9c-8b9a-f1a798bcbe71}</Project>
-      <Name>OverCR.Missouri</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OverCR.StatX.Hooks\OverCR.StatX.Hooks.csproj">
       <Project>{f948c678-c492-462d-a8aa-c6d90a7f12a9}</Project>
       <Name>OverCR.StatX.Hooks</Name>

@@ -38,11 +38,11 @@ namespace OverCR.StatX.Statistics
 
         public void ReloadStats()
         {
-            TotalLeftClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseLeftClicks");
-            TotalRightClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseRightClicks");
-            TotalMiddleClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseMiddleClicks");
-            TotalDistanceTraveled = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalMouseTravelDistance");
-            TotalDistanceScrolled = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalMouseScrollDistance");
+            TotalLeftClicks = App.StatisticsSaveFile.GetValue<int>("TotalMouseLeftClicks");
+            TotalRightClicks = App.StatisticsSaveFile.GetValue<int>("TotalMouseRightClicks");
+            TotalMiddleClicks = App.StatisticsSaveFile.GetValue<int>("TotalMouseMiddleClicks");
+            TotalDistanceTraveled = App.StatisticsSaveFile.GetValue<double>("TotalMouseTravelDistance");
+            TotalDistanceScrolled = App.StatisticsSaveFile.GetValue<double>("TotalMouseScrollDistance");
         }
 
         private void MouseHook_LeftMouseButtonDown(MouseHookEventArgs e)

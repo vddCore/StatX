@@ -19,39 +19,39 @@ namespace OverCR.StatX
         private void KeyboardTracker_KeyPressesChanged(object sender, EventArgs e)
         {
             TotalKeyPressesDisplay.Value = KeyboardTracker.TotalKeyPresses;
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalKeyPresses", KeyboardTracker.TotalKeyPresses.ToString());
+            App.StatisticsSaveFile.SetValue("TotalKeyPresses", KeyboardTracker.TotalKeyPresses);
         }
 
         private void KeyboardTracker_KeyPressureChanged(object sender, EventArgs e)
         {
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalKeyPressEnergy", KeyboardTracker.TotalKeypressEnergy.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.SetValue("TotalKeyPressEnergy", KeyboardTracker.TotalKeypressEnergy);
         }
 
         private void MouseTracker_DistanceTraveledChanged(object sender, EventArgs e)
         {
             TotalMouseDistanceDisplay.Value = Math.Round(MouseTracker.TotalDistanceTraveled, 2);
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalMouseTravelDistance", MouseTracker.TotalDistanceTraveled.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.SetValue("TotalMouseTravelDistance", MouseTracker.TotalDistanceTraveled);
         }
 
         private void MouseTracker_DistanceScrolledChanged(object sender, EventArgs e)
         {
             TotalMouseScrollDistanceDisplay.Value = Math.Round(MouseTracker.TotalDistanceScrolled, 2);
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalMouseScrollDistance", MouseTracker.TotalDistanceScrolled.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.SetValue("TotalMouseScrollDistance", MouseTracker.TotalDistanceScrolled);
         }
 
         private void MouseTracker_MiddleClicksChanged(object sender, EventArgs e)
         {
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalMouseMiddleClicks", MouseTracker.TotalMiddleClicks.ToString());
+            App.StatisticsSaveFile.SetValue("TotalMouseMiddleClicks", MouseTracker.TotalMiddleClicks);
         }
 
         private void MouseTracker_RightClicksChanged(object sender, EventArgs e)
         {
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalMouseRightClicks", MouseTracker.TotalRightClicks.ToString());
+            App.StatisticsSaveFile.SetValue("TotalMouseRightClicks", MouseTracker.TotalRightClicks);
         }
 
         private void MouseTracker_LeftClicksChanged(object sender, EventArgs e)
         {
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalMouseLeftClicks", MouseTracker.TotalLeftClicks.ToString());
+            App.StatisticsSaveFile.SetValue("TotalMouseLeftClicks", MouseTracker.TotalLeftClicks);
         }
 
         private void MouseTracker_ClicksChanged(object sender, EventArgs e)
@@ -70,23 +70,23 @@ namespace OverCR.StatX
                 {
                     var teraBytes = Math.Round(gigaBytes / 1024, 2);
                     SetTotalDataSent(teraBytes, "terabytes");
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSent", teraBytes.ToString(CultureInfo.InvariantCulture));
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSentUnit", "terabytes");
+                    App.StatisticsSaveFile.SetValue("TotalDataSent", teraBytes);
+                    App.StatisticsSaveFile.SetValue("TotalDataSentUnit", "terabytes");
                 }
                 else
                 {
                     SetTotalDataSent(gigaBytes, "gigabytes");
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSent", gigaBytes.ToString(CultureInfo.InvariantCulture));
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSentUnit", "gigabytes");
+                    App.StatisticsSaveFile.SetValue("TotalDataSent", gigaBytes);
+                    App.StatisticsSaveFile.SetValue("TotalDataSentUnit", "gigabytes");
                 }
             }
             else
             {
                 SetTotalDataSent(megaBytes, "megabytes");
-                App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSent", megaBytes.ToString(CultureInfo.InvariantCulture));
-                App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataSentUnit", "megabytes");
+                App.StatisticsSaveFile.SetValue("TotalDataSent", megaBytes);
+                App.StatisticsSaveFile.SetValue("TotalDataSentUnit", "megabytes");
             }
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalBytesSent", NetworkTracker.TotalBytesSent.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.SetValue("TotalBytesSent", NetworkTracker.TotalBytesSent);
         }
 
         private void NetworkTracker_ReceivedDataChanged(object sender, EventArgs e)
@@ -100,23 +100,23 @@ namespace OverCR.StatX
                 {
                     var teraBytes = Math.Round(gigaBytes / 1024, 2);
                     SetTotalDataReceived(teraBytes, "terabytes");
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceived", teraBytes.ToString(CultureInfo.InvariantCulture));
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceivedUnit", "terabytes");
+                    App.StatisticsSaveFile.SetValue("TotalDataReceived", teraBytes);
+                    App.StatisticsSaveFile.SetValue("TotalDataReceivedUnit", "terabytes");
                 }
                 else
                 {
                     SetTotalDataReceived(gigaBytes, "gigabytes");
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceived", gigaBytes.ToString(CultureInfo.InvariantCulture));
-                    App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceivedUnit", "gigabytes");
+                    App.StatisticsSaveFile.SetValue("TotalDataReceived", gigaBytes);
+                    App.StatisticsSaveFile.SetValue("TotalDataReceivedUnit", "gigabytes");
                 }
             }
             else
             {
                 SetTotalDataReceived(megaBytes, "megabytes");
-                App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceived", megaBytes.ToString(CultureInfo.InvariantCulture));
-                App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalDataReceivedUnit", "megabytes");
+                App.StatisticsSaveFile.SetValue("TotalDataReceived", megaBytes);
+                App.StatisticsSaveFile.SetValue("TotalDataReceivedUnit", "megabytes");
             }
-            App.StatisticsSaveFile.Section("Main").SetEntryValue("TotalBytesReceived", NetworkTracker.TotalBytesReceived.ToString(CultureInfo.InvariantCulture));
+            App.StatisticsSaveFile.SetValue("TotalBytesReceived", NetworkTracker.TotalBytesReceived);
         }
 
         private void SetTotalDataSent(double value, string unit)

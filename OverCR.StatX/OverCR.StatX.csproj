@@ -36,10 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OverCR.Missouri, Version=1.0.18.5803, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OverCR.Missouri\OverCR.Missouri\bin\Debug\OverCR.Missouri.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -151,6 +147,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Missouri\OverCR.Missouri\OverCR.Missouri.csproj">
+      <Project>{4973ceca-7d90-4f9c-8b9a-f1a798bcbe71}</Project>
+      <Name>OverCR.Missouri</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OverCR.StatX.Hooks\OverCR.StatX.Hooks.csproj">
       <Project>{f948c678-c492-462d-a8aa-c6d90a7f12a9}</Project>
       <Name>OverCR.StatX.Hooks</Name>

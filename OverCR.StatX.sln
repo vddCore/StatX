@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.StatX", "OverCR.StatX\OverCR.StatX.csproj", "{24E9A656-80B1-47C7-AFF3-6F099F12804A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.StatX.Hooks", "OverCR.StatX.Hooks\OverCR.StatX.Hooks.csproj", "{F948C678-C492-462D-A8AA-C6D90A7F12A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.Missouri", "..\OverCR.Missouri\OverCR.Missouri\OverCR.Missouri.csproj", "{4973CECA-7D90-4F9C-8B9A-F1A798BCBE71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverCR.Missouri", "..\Missouri\OverCR.Missouri\OverCR.Missouri.csproj", "{4973CECA-7D90-4F9C-8B9A-F1A798BCBE71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

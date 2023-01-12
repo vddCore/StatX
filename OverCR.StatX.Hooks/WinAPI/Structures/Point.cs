@@ -3,9 +3,9 @@
 namespace OverCR.StatX.Hooks.WinAPI.Structures
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Point
+    internal struct Point
     {
-        public int X;
-        public int Y;
+        internal int X;
+        internal int Y;
     }
 }

@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 namespace OverCR.StatX.Hooks.WinAPI.Structures
 {
     [StructLayout(LayoutKind.Sequential)]
-    struct MouseLowLevelHookStruct
+    internal struct MouseLowLevelHookStruct
     {
-        public Point Point;
-        public uint MouseData;
-        public uint Flags;
-        public uint Time;
-        public IntPtr ExtraInfo;
+        internal Point Point;
+        internal uint MouseData;
+        internal uint Flags;
+        internal uint Time;
+        internal IntPtr ExtraInfo;
     }
 }

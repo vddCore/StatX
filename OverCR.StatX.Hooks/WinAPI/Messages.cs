@@ -1,8 +1,8 @@
 ﻿namespace OverCR.StatX.Hooks.WinAPI
 {
-    public class Messages
+    class Messages
     {
-        public enum Mouse
+        internal enum Mouse
         {
             LeftButtonDown = 0x0201,
             LeftButtonUp = 0x0202,
@@ -15,7 +15,7 @@
             MiddleButtonUp = 0x0208
         }
 
-        public enum Keyboard
+        internal enum Keyboard
         {
             KeyDown = 0x100,
             SystemKeyDown = 0x104,

@@ -23,11 +23,8 @@ namespace OverCR.StatX.Statistics
 
         public void ReloadStats()
         {
-            int totalKeyPresses;
-            double totalKeyPressEnergy;
-
-            TotalKeyPresses = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalKeyPresses"), out totalKeyPresses) ? 0 : totalKeyPresses;
-            TotalKeypressEnergy = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalKeyPressEnergy"), out totalKeyPressEnergy) ? 0 : totalKeyPressEnergy;
+            TotalKeyPresses = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalKeyPresses");
+            TotalKeypressEnergy = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalKeyPressEnergy");
         }
 
         private void KeyboardHook_KeyDown(KeyboardHookEventArgs e)

@@ -38,17 +38,11 @@ namespace OverCR.StatX.Statistics
 
         public void ReloadStats()
         {
-            int totalLeftClicks;
-            int totalRightClicks;
-            int totalMiddleClicks;
-            double totalDistanceTraveled;
-            double totalDistanceScrolled;
-
-            TotalLeftClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseLeftClicks"), out totalLeftClicks) ? 0 : totalLeftClicks;
-            TotalRightClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseRightClicks"), out totalRightClicks) ? 0 : totalRightClicks;
-            TotalMiddleClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseMiddleClicks"), out totalMiddleClicks) ? 0 : totalMiddleClicks;
-            TotalDistanceTraveled = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseTravelDistance"), out totalDistanceTraveled) ? 0 : totalDistanceTraveled;
-            TotalDistanceScrolled = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseScrollDistance"), out totalDistanceScrolled) ? 0 : totalDistanceScrolled;
+            TotalLeftClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseLeftClicks");
+            TotalRightClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseRightClicks");
+            TotalMiddleClicks = App.StatisticsSaveFile.Section("Main").Entry<int>("TotalMouseMiddleClicks");
+            TotalDistanceTraveled = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalMouseTravelDistance");
+            TotalDistanceScrolled = App.StatisticsSaveFile.Section("Main").Entry<double>("TotalMouseScrollDistance");
         }
 
         private void MouseHook_LeftMouseButtonDown(MouseHookEventArgs e)

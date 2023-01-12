@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.IO;
 
 namespace OverCR.StatX.Config
@@ -14,7 +12,7 @@ namespace OverCR.StatX.Config
 
         private string FileName { get; }
 
-        public Dictionary<string, string> Entries { get; }
+        public Dictionary<string, object> Entries { get; }
 
         public Settings(string fileName)
         {
@@ -25,11 +23,11 @@ namespace OverCR.StatX.Config
 
             using (var sr = new StreamReader(fileName))
             {
-                Entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(sr.ReadToEnd());
+                Entries = JsonConvert.DeserializeObject<Dictionary<string, object>>(sr.ReadToEnd());
             }
 
             if (Entries == null)
-                Entries = new Dictionary<string, string>();
+                Entries = new Dictionary<string, object>();
 
             PendingUpdates = new Queue<PendingWriteInfo>();
         }
@@ -56,7 +54,7 @@ namespace OverCR.StatX.Config
             try
             {
                 var typeConverter = TypeDescriptor.GetConverter(typeof(T));
-                return (T)typeConverter.ConvertFromString(Entries[key]);
+                return (T)typeConverter.ConvertFrom(Entries[key]);
             }
             catch
             {

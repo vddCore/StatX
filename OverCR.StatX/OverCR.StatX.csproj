@@ -73,6 +73,7 @@
     <Compile Include="Config\PendingWriteInfo.cs" />
     <Compile Include="Config\PendingWriteType.cs" />
     <Compile Include="Config\Settings.cs" />
+    <Compile Include="Extensions\WindowExtensions.cs" />
     <Compile Include="Statistics\KeyboardTracker.cs" />
     <Compile Include="Statistics\MouseTracker.cs" />
     <Compile Include="Statistics\NetworkTracker.cs" />

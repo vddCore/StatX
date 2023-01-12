@@ -39,6 +39,10 @@ namespace OverCR.StatX.Statistics
                     KeySpecificStats.Add(kvp.Key, kvp.Value);
                 }
             }
+            else
+            {
+                App.StatisticsSaveFile.SetValue("KeySpecificStats", new Dictionary<string, long>());
+            }
         }
 
         private void KeyboardHook_KeyDown(KeyboardHookEventArgs e)

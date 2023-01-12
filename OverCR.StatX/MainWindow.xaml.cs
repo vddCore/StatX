@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Globalization;
 using System.Windows;
 using OverCR.StatX.Statistics;
+using OverCR.StatX.Extensions;
 
 namespace OverCR.StatX
 {
@@ -141,6 +141,9 @@ namespace OverCR.StatX
         {
             App.TrayIconProvider.CreateTrayIcon("StatX");
             App.TrayIconProvider.NotifyIconClicked += TrayIconProvider_NotifyIconClicked;
+
+            this.DisableMaximization();
+
             Application.Current.Exit += (s, a) =>
             {
                 NetworkTracker.StopMonitoring();

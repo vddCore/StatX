@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 
@@ -8,9 +9,12 @@ namespace OverCR.StatX.Config
 {
     public class Settings
     {
+        private bool IsWritingSettings { get; set; }
+        private Queue<PendingWriteInfo> PendingUpdates { get; }
+
         private string FileName { get; }
 
-        public Dictionary<string, string> Entries { get; } = new Dictionary<string, string>();
+        public Dictionary<string, string> Entries { get; }
 
         public Settings(string fileName)
         {
@@ -21,16 +25,27 @@ namespace OverCR.StatX.Config
 
             using (var sr = new StreamReader(fileName))
             {
-                JsonConvert.DeserializeObject<Dictionary<string, string>>(sr.ReadToEnd());
+                Entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(sr.ReadToEnd());
             }
+
+            if (Entries == null)
+                Entries = new Dictionary<string, string>();
+
+            PendingUpdates = new Queue<PendingWriteInfo>();
         }
 
         public void Save()
         {
+            IsWritingSettings = true;
+
             using (var sw = new StreamWriter(FileName))
             {
                 sw.Write(JsonConvert.SerializeObject(Entries));
             }
+
+            IsWritingSettings = false;
+
+            WritePendingValues();
         }
 
         public T GetValue<T>(string key)
@@ -40,7 +55,8 @@ namespace OverCR.StatX.Config
 
             try
             {
-                return (T)Convert.ChangeType(Entries[key], typeof(T));
+                var typeConverter = TypeDescriptor.GetConverter(typeof(T));
+                return (T)typeConverter.ConvertFromString(Entries[key]);
             }
             catch
             {
@@ -50,10 +66,33 @@ namespace OverCR.StatX.Config
 
         public void SetValue<T>(string key, T value)
         {
-            if (!Entries.ContainsKey(key))
-                Entries.Add(key, value.ToString());
+            if (!IsWritingSettings)
+            {
+                if (!Entries.ContainsKey(key))
+                    Entries.Add(key, value.ToString());
+                else
+                    Entries[key] = value.ToString();
+            }
             else
-                Entries[key] = value.ToString();
+            {
+                if (!Entries.ContainsKey(key))
+                    PendingUpdates.Enqueue(new PendingWriteInfo(key, value.ToString(), PendingWriteType.Add));
+                else
+                    PendingUpdates.Enqueue(new PendingWriteInfo(key, value.ToString(), PendingWriteType.Modify));
+            }
+        }
+
+        private void WritePendingValues()
+        {
+            while (PendingUpdates.Count > 0)
+            {
+                var info = PendingUpdates.Dequeue();
+
+                if (info.Type == PendingWriteType.Add)
+                    Entries.Add(info.Key, info.Value);
+                else
+                    Entries[info.Key] = info.Value;
+            }
         }
     }
 }

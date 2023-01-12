@@ -70,6 +70,8 @@
     <Compile Include="ChoiceWindow.xaml.cs">
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Config\PendingWriteInfo.cs" />
+    <Compile Include="Config\PendingWriteType.cs" />
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Statistics\KeyboardTracker.cs" />
     <Compile Include="Statistics\MouseTracker.cs" />
@@ -164,11 +166,6 @@
     <None Include="LICENSE" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="_settings\core.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Icons\TrayIcon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -176,12 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\PNG\QuestionMark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_settings\stats.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,3 @@
+[submodule "Atlas.UI"]
+	path = Atlas.UI
+	url = https://github.com/Ciastex/Atlas.UI.git

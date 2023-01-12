@@ -1,38 +1,49 @@
 ﻿using System;
-using System.Drawing;
-using System.IO;
+using System.Timers;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Threading;
-using OverCR.StatX.Hooks.Windows;
-using OverCR.StatX.Statistics;
+using OverCR.Missouri;
+using OverCR.StatX.Tray;
 
 namespace OverCR.StatX
 {
     public partial class App
     {
-        private NotifyIcon NotifyIcon { get; }
+        public static TrayIconProvider TrayIconProvider { get; set; }
+        public static XmlConfiguration StatisticsSaveFile { get; set; }
 
-        public static event EventHandler NotifyIconClicked;
+        private static Timer SettingsTimer { get; set; }
 
         public App()
         {
-            var stream = GetResourceStream(new Uri("pack://application:,,,/OverCR.StatX;component/Resources/Icons/TrayIcon.ico"))?.Stream;
+            TrayIconProvider = new TrayIconProvider();
+            StatisticsSaveFile = XmlConfiguration.AbsolutePath("./_settings/stats.xml");
 
-            if (stream == null)
-                throw new Exception("Icon stream cannot be null.");
+            SettingsTimer = new Timer(15000);
+            SettingsTimer.Elapsed += SettingsTimer_Elapsed;
+            SettingsTimer.Start();
 
-            NotifyIcon = new NotifyIcon
+            Exit += App_Exit;
+        }
+
+        private void SettingsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            StatisticsSaveFile.Save();
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            StatisticsSaveFile.Save();
+            TrayIconProvider.HideIcon();
+        }
+
+        public static void CriticalFailure(string message, Window owner)
+        {
+            var win = AlertWindow.ErrorBox(message, owner);
+            win.Closed += (sender, args) =>
             {
-                Icon = new Icon(stream),
-                Visible = true,
-                Text = "StatX"
+                Environment.Exit(1);
             };
-
-            NotifyIcon.Click += (sender, args) =>
-            {
-                NotifyIconClicked?.Invoke(this, EventArgs.Empty);
-            };
+            win.ShowDialog();
         }
     }
 }

@@ -21,6 +21,15 @@ namespace OverCR.StatX.Statistics
             KeyboardHook.Install();
         }
 
+        public void ReloadStats()
+        {
+            int totalKeyPresses;
+            double totalKeyPressEnergy;
+
+            TotalKeyPresses = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalKeyPresses"), out totalKeyPresses) ? 0 : totalKeyPresses;
+            TotalKeypressEnergy = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalKeyPressEnergy"), out totalKeyPressEnergy) ? 0 : totalKeyPressEnergy;
+        }
+
         private void KeyboardHook_KeyDown(KeyboardHookEventArgs e)
         {
             // membrane = ~0.075

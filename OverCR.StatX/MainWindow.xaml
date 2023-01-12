@@ -50,33 +50,45 @@
                                                  UnitName="presses"
                                                  Value="0"/>
 
-            <controls:StatisticsDisplayRightSide x:Name="TotalKeyPressureDisplay" 
+            <controls:StatisticsDisplayRightSide x:Name="TotalDataReceivedDisplay" 
                                                  HorizontalAlignment="Right"
                                                  VerticalAlignment="Top" 
-                                                 Title="total keypress energy" 
-                                                 UnitName="joules"
+                                                 Title="total data received" 
+                                                 UnitName="megabytes"
                                                  Value="0"/>
+            <controls:StatisticsDisplayRightSide x:Name="TotalDataSentDisplay"
+                                                 HorizontalAlignment="Right"
+                                                 VerticalAlignment="Top"
+                                                 Title="total data sent"
+                                                 UnitName="megabytes" 
+                                                 Value="0" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Left"
                     Margin="10,0,0,10">
-            <Button HorizontalAlignment="Left"
+            <Button Name="HideWindowButton"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="0,0,10,0"
-                    Content="hide window" />
-            <Button HorizontalAlignment="Left"
+                    Content="hide window"
+                    Click="HideWindowButton_Click"/>
+            <!--<Button Name="DetailedStatsButton"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="0,0,10,0"
                     Content="detailed statistics" />
-            <Button HorizontalAlignment="Left"
+            <Button Name="SettingsButton"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="0,0,10,0"
-                    Content="settings" />
-            <Button HorizontalAlignment="Left"
+                    Content="settings" />-->
+            <Button Name="QuitButton"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Content="quit program" />
+                    Content="quit program" 
+                    Click="QuitButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

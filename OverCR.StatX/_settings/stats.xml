@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration Name="Statistics">
+  <Section Name="Main">
+    <Entry Key="TotalMouseLeftClicks" Value="0" />
+    <Entry Key="TotalMouseRightClicks" Value="0" />
+    <Entry Key="TotalMouseMiddleClicks" Value="0" />
+    <Entry Key="TotalMouseTravelDistance" Value="0.0" />
+    <Entry Key="TotalMouseScrollDistance" Value="0.0" />
+    <Entry Key="TotalKeyPresses" Value="0" />
+    <Entry Key="TotalKeyPressEnergy" Value="0.0" />
+    <Entry Key="TotalBytesSent" Value="0.0" />
+    <Entry Key="TotalDataSent" Value="0.0" />
+    <Entry Key="TotalDataSentUnit" Value="megabytes" />
+    <Entry Key="TotalBytesReceived" Value="0.0" />
+    <Entry Key="TotalDataReceived" Value="0.0" />
+    <Entry Key="TotalDataReceivedUnit" Value="megabytes" />
+  </Section>
+</Configuration>

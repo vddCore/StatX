@@ -36,6 +36,21 @@ namespace OverCR.StatX.Statistics
             MouseHook.Install();
         }
 
+        public void ReloadStats()
+        {
+            int totalLeftClicks;
+            int totalRightClicks;
+            int totalMiddleClicks;
+            double totalDistanceTraveled;
+            double totalDistanceScrolled;
+
+            TotalLeftClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseLeftClicks"), out totalLeftClicks) ? 0 : totalLeftClicks;
+            TotalRightClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseRightClicks"), out totalRightClicks) ? 0 : totalRightClicks;
+            TotalMiddleClicks = !int.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseMiddleClicks"), out totalMiddleClicks) ? 0 : totalMiddleClicks;
+            TotalDistanceTraveled = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseTravelDistance"), out totalDistanceTraveled) ? 0 : totalDistanceTraveled;
+            TotalDistanceScrolled = !double.TryParse(App.StatisticsSaveFile.Section("Main").Entry("TotalMouseScrollDistance"), out totalDistanceScrolled) ? 0 : totalDistanceScrolled;
+        }
+
         private void MouseHook_LeftMouseButtonDown(MouseHookEventArgs e)
         {
             TotalLeftClicks += 1;

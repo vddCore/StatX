@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text;
+using OverCR.StatX.Hooks.WinAPI.Structures;
 
 namespace OverCR.StatX.Hooks.WinAPI
 {
@@ -20,9 +22,18 @@ namespace OverCR.StatX.Hooks.WinAPI
 
         [DllImport("user32.dll")]
         internal static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr moduleHandle, WindowsEventHandler hookHandler, 
-            uint processId, uint threadId, uint flags);
+            uint processId, uint threadId, WindowsEventFlags flags);
 
         [DllImport("user32.dll")]
         internal static extern bool UnhookWinEvent(IntPtr hookId);
+
+        [DllImport("user32.dll")]
+        internal static extern int GetWindowText(IntPtr windowHandle, StringBuilder outputString, int maxCount);
+
+        [DllImport("user32.dll")]
+        internal static extern int GetWindowTextLength(IntPtr windowHandle);
+
+        [DllImport("user32.dll")]
+        internal static extern int GetWindowRect(IntPtr windowHandle, out Rectangle outputRectangle);
     }
 }

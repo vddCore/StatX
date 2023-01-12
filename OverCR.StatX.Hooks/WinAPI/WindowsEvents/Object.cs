@@ -1,0 +1,40 @@
+﻿namespace OverCR.StatX.Hooks.WinAPI.WindowsEvents
+{
+    internal enum Object
+    {
+        Created = 0x8000,
+        Destroyed = 0x8001,
+        Show = 0x8002,
+        Hide = 0x8003,
+        Reordered = 0x8004,
+        Focused = 0x8005,
+        SelectionChanged = 0x8006,
+        SelectionAdded = 0x8007,
+        SelectionRemoved = 0x8008,
+        SelectionWithin = 0x8009,
+        StateChanged = 0x800A,
+        LocationChanged = 0x800B,
+        NameChanged = 0x800C,
+        DescriptionChanged = 0x800D,
+        ValueChanged = 0x800E,
+        ParentChanged = 0x800F,
+        HelpChanged = 0x8010,
+        DefaultActionChanged = 0x8011,
+        AcceleratorChanged = 0x8012,
+        Invoked = 0x8013,
+        TextSelectionChanged = 0x8014,
+        ContentScrolled = 0x8015,
+        LiveRegionChanged = 0x8019,
+        HostedObjectInvalidated = 0x8020,
+        DragStarted = 0x8021,
+        DragCancelled = 0x8022,
+        DragCompleted = 0x8023,
+        DragEnter = 0x8024,
+        DragLeave = 0x8025,
+        DragDropped = 0x8026,
+        IMEShow = 0x8027,
+        IMEHide = 0x8028,
+        IMEConversionTargetChanged = 0x8030,
+        End = 0x80FF
+    }
+}

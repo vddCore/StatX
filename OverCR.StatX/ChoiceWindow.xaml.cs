@@ -1,22 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OverCR.StatX
 {
-    /// <summary>
-    /// Interaction logic for ChoiceWindow.xaml
-    /// </summary>
     public partial class ChoiceWindow
     {
         public event EventHandler YesClicked;
@@ -35,6 +21,9 @@ namespace OverCR.StatX
                 MessageBlock = { Text = message },
                 Owner = owner
             };
+            window.Top = owner.Top + owner.Height / 2 - window.Height / 2;
+            window.Left = owner.Left + owner.Width / 2 - window.Width / 2;
+
             return window;
         }
 
